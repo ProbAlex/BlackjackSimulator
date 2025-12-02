@@ -18,7 +18,7 @@ public class Dealer extends GameParticipant implements Displayable {
     }
 
     public void displayStatusHidden() {
-        System.out.println("\n" + super.getName() + "'s Hand:");
+        System.out.println("\n" + name + "'s Hand:");
         System.out.println(hand.getCards().getFirst() + ", [Hidden]");
     }
 }

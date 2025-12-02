@@ -23,9 +23,8 @@ public class Game {
         System.out.println("   Welcome to Blackjack!");
         System.out.println("=================================\n");
 
-        while (player.getWallet().getBalance() > 0) {
+        while (player.getWallet().getBalance() > 0) { //gameplay loop
             playRound();
-
             if (player.getWallet().getBalance() > 0) {
                 System.out.print("\nPlay another round? (y/n): ");
                 String choice = scanner.nextLine().trim().toLowerCase();
@@ -62,7 +61,7 @@ public class Game {
             return;
         }
 
-        // Initial deal
+        // Initial deal (alternating like normal dealing)
         player.getHand().addCard(deck.drawCard());
         dealer.getHand().addCard(deck.drawCard());
         player.getHand().addCard(deck.drawCard());
@@ -82,7 +81,7 @@ public class Game {
             return;
         }
 
-        // Player's turn
+        // Player's turn -- loop exits once the player stands or busts
         while (!player.getHand().isBusted()) {
             System.out.print("\nHit or Stand? (h/s): ");
             String choice = scanner.nextLine().trim().toLowerCase();

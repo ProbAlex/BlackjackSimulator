@@ -20,7 +20,7 @@ public class Player extends GameParticipant implements Displayable {
     }
 
     public void displayStatus() {
-        System.out.println("\n" + super.getName() + "'s Hand:");
+        System.out.println("\n" + name + "'s Hand:");
         System.out.println(hand + " (Value: " + hand.getValue() + ")");
         System.out.printf("Balance: $%.2f\n", wallet.getBalance());
     }
