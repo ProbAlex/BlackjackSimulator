@@ -56,7 +56,7 @@ public class Game {
                 return;
             }
             player.getWallet().placeBet(bet);
-        } catch (NumberFormatException e) {
+        } catch (Exception e){
             System.out.println("Invalid bet amount!");
             return;
         }
@@ -141,7 +141,7 @@ public class Game {
             System.out.println("Dealer wins!");
         } else {
             System.out.println("Push!");
-            player.getWallet().winBet(bet);
+            player.getWallet().winBet(bet); //pushes are rigged in player's favor
         }
     }
 }

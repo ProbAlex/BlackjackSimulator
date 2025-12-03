@@ -22,6 +22,4 @@ public abstract class GameParticipant {
     public void clearHand() {
         hand.clear();
     }
-
-    public abstract boolean shouldHit();
 }

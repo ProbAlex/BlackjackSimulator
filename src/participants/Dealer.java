@@ -1,8 +1,7 @@
 package participants;
 
-import interfaces.Displayable;
 
-public class Dealer extends GameParticipant implements Displayable {
+public class Dealer extends GameParticipant {
 
     public Dealer() {
         super("Dealer");

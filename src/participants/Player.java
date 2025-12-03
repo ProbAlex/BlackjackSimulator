@@ -1,9 +1,8 @@
 package participants;
 
 import models.Wallet;
-import interfaces.Displayable;
 
-public class Player extends GameParticipant implements Displayable {
+public class Player extends GameParticipant {
     private Wallet wallet;
 
     public Player(String name, double startingBalance) {
@@ -13,10 +12,6 @@ public class Player extends GameParticipant implements Displayable {
 
     public Wallet getWallet() {
         return wallet;
-    }
-
-    public boolean shouldHit() {
-        return false; // Player decides manually
     }
 
     public void displayStatus() {
