@@ -38,7 +38,7 @@ public class Hand {
     }
 
     public boolean isBlackjack() {
-        return getValue() == 21;
+        return getValue() == 21 && cards.size()==2;
     }
 
     public void clear() {
