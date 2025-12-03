@@ -69,17 +69,8 @@ public class Game {
 
         displayHands(true);
 
-        // Check for blackjack
-        if (player.getHand().isBlackjack()) {
-            if (dealer.getHand().isBlackjack()) {
-                System.out.println("\nBoth have Blackjack!");
-                player.getWallet().winBet(bet);
-            } else {
-                System.out.println("\nBlackjack! You win!");
-                player.getWallet().winBet(bet * 2);
-            }
-            return;
-        }
+        // Check for blackjack, and ends function if blackjack
+        if (checkBlackjack(bet)){return;}
 
         // Player's turn -- loop exits once the player stands or busts
         while (!player.getHand().isBusted()) {
@@ -94,6 +85,8 @@ public class Game {
                     System.out.println("\nBust! You lose!");
                     return;
                 }
+                if (checkBlackjack(bet)){return;}
+
             } else if (choice.equals("s")) {
                 break;
             } else {
@@ -143,5 +136,19 @@ public class Game {
             System.out.println("Push!");
             player.getWallet().winBet(bet); //pushes are rigged in player's favor
         }
+    }
+
+    private boolean checkBlackjack(double bet){
+        if (player.getHand().isBlackjack()) {
+            if (dealer.getHand().isBlackjack()) {
+                System.out.println("\nBoth have Blackjack!");
+                player.getWallet().winBet(bet);
+            } else {
+                System.out.println("\nBlackjack! You win!");
+                player.getWallet().winBet(bet * 2);
+            }
+            return true;
+        }
+        return false;
     }
 }
